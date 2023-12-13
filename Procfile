@@ -1,4 +1,4 @@
-release: python manage.py makemigrations --no-imput
-release: python manage.py migrate --noimput
+release: python manage.py makemigrations --no-input
+release: python manage.py migrate --no-input
 
 web: gunicorn Lizania_api.wsgi
