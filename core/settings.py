@@ -38,12 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'corsheaders',
     'rest_framework.authtoken',
     'users.apps.UsersConfig',
     'inventario.apps.InventarioConfig',
     'agenda.apps.AgendaConfig',
-    'corsheaders',
     'django_heroku',
+    'whitenoise.runserver_nostatic',
 
 ]
 
@@ -57,6 +58,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'core.urls'
@@ -127,6 +129,7 @@ USE_TZ = True
 
 if not DEBUG: 
     STATIC_URL = 'static/'
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 #permitir que whitenoise maneje los archivos estaticos
 STATIC_ROOT = BASE_DIR / 'staticfiles'
