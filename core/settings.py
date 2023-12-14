@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'inventario.apps.InventarioConfig',
     'agenda.apps.AgendaConfig',
-    'corsheaders',
+    #'corsheaders',
     'django_heroku',
 
 ]
