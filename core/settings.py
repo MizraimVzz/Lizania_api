@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'inventario.apps.InventarioConfig',
     'agenda.apps.AgendaConfig',
-    'django_heroku',
     'whitenoise.runserver_nostatic',
 
 ]
@@ -127,12 +126,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-if not DEBUG: 
-    STATIC_URL = 'static/'
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-#permitir que whitenoise maneje los archivos estaticos
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_URL = 'static/'
+MEDIA_URL = '/uploads/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'uploads')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -159,6 +156,3 @@ STATICFILES_DIRS = (
 )
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-#import django_heroku
-# Configure Django App for Heroku.
-#django_heroku.settings(locals())
